@@ -1,4 +1,3 @@
-import copy
 
 matrix = [[-1.41, 2, 0],
 [1, -1.41, 1],
@@ -137,8 +136,8 @@ def solutionOfMatrixByGaussElimination(matrix, resvec):
     rowscount = len(matrix)
     if rowscount != len(resvec):
         return []  # number of rows in matrix doesn't match number of rows in result vector
-    matrix = copy.deepcopy(matrix)
-    resvec = copy.deepcopy(resvec)
+    #matrix = copy.deepcopy(matrix)
+    #resvec = copy.deepcopy(resvec)
     elementaryMatrixesList = []
     i = 0
     while i < rowscount:
@@ -151,8 +150,8 @@ def solutionOfMatrixByGaussElimination(matrix, resvec):
             if abs(matrix[s][i]) > abs(rowdivider):
                 # swap lines
                 tempmat = buildIdentityMatrix(rowscount)
-                temp = tempmat[s].copy()
-                tempmat[s] = tempmat[i].copy()
+                temp = tempmat[s]
+                tempmat[s] = tempmat[i]
                 tempmat[i] = temp
                 print_mul(tempmat, matrix)
                 matrix = multiplyMatrix(tempmat,matrix)
